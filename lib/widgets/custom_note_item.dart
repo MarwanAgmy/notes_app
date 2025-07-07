@@ -26,11 +26,12 @@ class NoteItem extends StatelessWidget {
                 'Builed your career with Marwan Agmy',
                 style: TextStyle(
                   color: Colors.black.withValues(alpha: .5),
-                  fontSize: 18,
+                  fontSize: 16,
                 ),
               ),
             ),
             trailing: IconButton(
+              padding: EdgeInsets.only(bottom: 35, left: 24),
               onPressed: () {},
               icon: const Icon(
                 FontAwesomeIcons.trash,
@@ -42,10 +43,10 @@ class NoteItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 24),
             child: Text(
-              'may 21, 2025',
+              'May 21, 2025',
               style: TextStyle(
                 color: Colors.black.withValues(alpha: .5),
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
           ),
