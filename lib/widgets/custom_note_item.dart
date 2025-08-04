@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
+import 'package:notes_app/widgets/snackbar_message.dart';
 
 class CustomNoteItem extends StatelessWidget {
   const CustomNoteItem({super.key, required this.note});
@@ -50,6 +51,9 @@ class CustomNoteItem extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 35, left: 24),
                 onPressed: () {
                   note.delete();
+                  SnackBarMessage(
+                    text: 'Note deleted successfully',
+                  ).snackBarMessage(context);
                   BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                 },
                 icon: const Icon(

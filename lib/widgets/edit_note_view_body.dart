@@ -4,6 +4,7 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/widgets/edit_note_colors_list_view.dart';
 import 'package:notes_app/widgets/snackbar_message.dart';
 
 class EditNoteViewBody extends StatefulWidget {
@@ -19,7 +20,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: 24, right: 24),
+      padding: const EdgeInsets.only(left: 24, right: 24),
       child: Column(
         children: [
           CustomAppBar(
@@ -27,8 +28,10 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               widget.note.title = title ?? widget.note.title;
               widget.note.subTitle = content ?? widget.note.subTitle;
               widget.note.save();
+              SnackBarMessage(
+                text: 'Successfully changed',
+              ).snackBarMessage(context);
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-              SnackBarMessage();
               Navigator.pop(context);
             },
             text: 'Edit Note',
@@ -49,6 +52,8 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             hint: widget.note.subTitle,
             maxLines: 5,
           ),
+          const SizedBox(height: 16),
+          EditNoteColorsListView(note: widget.note),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_search_icon.dart';
+import 'package:notes_app/widgets/custom_home_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -13,13 +13,16 @@ class CustomAppBar extends StatelessWidget {
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(text, style: const TextStyle(fontSize: 28)),
-        CustomSearchIcon(onPressed: onPressed, icon: icon),
-        // IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 50),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(text, style: const TextStyle(fontSize: 28)),
+          CustomHomeIcon(onPressed: onPressed, icon: icon),
+          // IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        ],
+      ),
     );
   }
 }

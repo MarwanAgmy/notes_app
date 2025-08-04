@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({super.key, required this.icon, this.onPressed});
+class CustomHomeIcon extends StatelessWidget {
+  const CustomHomeIcon({super.key, required this.icon, this.onPressed});
   final IconData icon;
   final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46,
-      width: 46,
-      padding: const EdgeInsets.all(8),
+      height: 50,
+      width: 50,
+      padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05), // لون المربع
 
